@@ -1,2 +1,2 @@
 # Pinball
-Just a scuffed pinball gmae im making for a summer project
+Just a scuffed pinball game im making for a summer project
