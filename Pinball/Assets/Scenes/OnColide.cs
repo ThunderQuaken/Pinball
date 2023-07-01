@@ -43,7 +43,7 @@ public class OnCollide : MonoBehaviour
             contact = col.GetContact(0);
         }
 
-        if (col.gameObject.tag == "LeftFlipper")
+        if (col.gameObject.tag == "LeftFlipper" && col.gameObject.GetComponentInParent<LeftFlipperRotator>().rotating)
         {
             flipperCollision = true;
             contact = col.GetContact(0);
@@ -52,7 +52,7 @@ public class OnCollide : MonoBehaviour
 
         }
 
-        if (col.gameObject.tag == "RightFlipper" && col.gameObject.GetComponentInParent<RightFlipperRotator>.rotating)
+        if (col.gameObject.tag == "RightFlipper" && col.gameObject.GetComponentInParent<RightFlipperRotator>().rotating)
         {
             flipperCollision = true;
             contact = col.GetContact(0);

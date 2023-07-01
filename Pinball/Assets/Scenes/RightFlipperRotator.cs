@@ -21,6 +21,7 @@ public class RightFlipperRotator : MonoBehaviour
             if (transform.localEulerAngles.y >= 340 || transform.localEulerAngles.y < 10)
             {
                 transform.Rotate(direction * speed * Time.deltaTime);
+                rotating = true;
             }
         }
         else
@@ -28,16 +29,19 @@ public class RightFlipperRotator : MonoBehaviour
             if (transform.localEulerAngles.y > 340 || transform.localEulerAngles.y <= 10)
             {
                 transform.Rotate(direction * speed * Time.deltaTime * -1);
+                rotating = false;
             }
         }
 
         if (transform.localEulerAngles.y < 340 && transform.localEulerAngles.y > 170)
         {
             transform.Rotate(downPosition - transform.localEulerAngles);
+            rotating = false;
         }
         if (transform.localEulerAngles.y > 10 && transform.localEulerAngles.y < 160)
         {
             transform.Rotate(upPosition - transform.localEulerAngles);
+            rotating = false;
         }
     }
 }
