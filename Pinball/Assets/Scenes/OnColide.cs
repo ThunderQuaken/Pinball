@@ -77,11 +77,11 @@ public class OnCollide : MonoBehaviour
             rb.AddForce(contact.normal *  bumperMultiplier);
         }
 
-        if (flipperCollision == true)
+/*        if (flipperCollision == true)
         {
             Debug.Log(contact.normal * appliedForce.y * 100);
             flipperCollision = false;
             rb.AddForce(contact.normal * appliedForce.y * 10000);
-        }
+        } */
     }
 }

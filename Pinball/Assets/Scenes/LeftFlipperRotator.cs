@@ -11,6 +11,7 @@ public class LeftFlipperRotator : MonoBehaviour
     public bool rotating = false;
     Vector3 downPosition = new Vector3(0, 20, 0);
     Vector3 upPosition = new Vector3(0, 350, 0);
+    public Rigidbody rb;
 
     // Update is called once per frame
     void Update()
@@ -20,10 +21,12 @@ public class LeftFlipperRotator : MonoBehaviour
         {
             if (transform.localEulerAngles.y <= 20 || transform.localEulerAngles.y > 350)
             {
-                transform.Rotate(direction * speed * Time.deltaTime);
+                rb.angularVelocity.Set(0f, 20f, 0f);
+                Debug.Log(rb.angularVelocity);
                 rotating = true;
             }
-        } else
+        
+        } /* else
         {
             if (transform.localEulerAngles.y < 20 || transform.localEulerAngles.y >= 350)
             {
@@ -42,5 +45,6 @@ public class LeftFlipperRotator : MonoBehaviour
             transform.Rotate(upPosition - transform.localEulerAngles);
             rotating = false;
         }
+        */
     }
 }
