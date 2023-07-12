@@ -344,7 +344,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &120616297
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -394,8 +394,8 @@ HingeJoint:
   m_ExtendedLimits: 0
   m_UseAcceleration: 0
   m_Limits:
-    min: -56.93888
-    max: 2.586794
+    min: -60
+    max: 0
     bounciness: 0
     bounceMinVelocity: 0.2
     contactDistance: 0
@@ -642,7 +642,8 @@ GameObject:
   - component: {fileID: 381083333}
   - component: {fileID: 381083334}
   - component: {fileID: 381083335}
-  m_Layer: 0
+  - component: {fileID: 381083336}
+  m_Layer: 7
   m_Name: Right Flipper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -683,6 +684,7 @@ MonoBehaviour:
   speed: 500
   direction: {x: 0, y: 1, z: 0}
   rotating: 0
+  rb: {fileID: 0}
 --- !u!54 &381083334
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -706,10 +708,10 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &381083335
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -731,6 +733,45 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.2, y: 2, z: 4}
   m_Center: {x: 0, y: 0, z: -1.5}
+--- !u!59 &381083336
+HingeJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381083331}
+  m_ConnectedBody: {fileID: 0}
+  m_ConnectedArticulationBody: {fileID: 0}
+  m_Anchor: {x: 0, y: 0, z: 0}
+  m_Axis: {x: 0, y: 1, z: 0}
+  m_AutoConfigureConnectedAnchor: 1
+  m_ConnectedAnchor: {x: 43.58, y: 1.5, z: 5.76}
+  serializedVersion: 2
+  m_UseSpring: 0
+  m_Spring:
+    spring: 0
+    damper: 0
+    targetPosition: 0
+  m_UseMotor: 1
+  m_Motor:
+    targetVelocity: 0
+    force: 0
+    freeSpin: 0
+  m_UseLimits: 1
+  m_ExtendedLimits: 0
+  m_UseAcceleration: 0
+  m_Limits:
+    min: 0
+    max: 60
+    bounciness: 0
+    bounceMinVelocity: 0.2
+    contactDistance: 0
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
 --- !u!1 &386452851
 GameObject:
   m_ObjectHideFlags: 0
@@ -2026,7 +2067,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 849523820}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.046146005, y: 1.4134604, z: -24.5}
+  m_LocalPosition: {x: -0.046146005, y: 1.5, z: -24.5}
   m_LocalScale: {x: 100.000015, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2324,7 +2365,7 @@ GameObject:
   - component: {fileID: 1079540718}
   - component: {fileID: 1079540721}
   - component: {fileID: 1079540720}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightFlipperBase
   m_TagString: RightFlipperBase
   m_Icon: {fileID: 0}
@@ -2512,7 +2553,7 @@ GameObject:
   - component: {fileID: 1102948703}
   - component: {fileID: 1102948706}
   - component: {fileID: 1102948705}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightFlipperTop
   m_TagString: RightFlipper
   m_Icon: {fileID: 0}
@@ -2595,7 +2636,7 @@ GameObject:
   - component: {fileID: 1168275411}
   - component: {fileID: 1168275414}
   - component: {fileID: 1168275413}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightFlipperTip
   m_TagString: RightFlipper
   m_Icon: {fileID: 0}
@@ -2716,7 +2757,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!135 &1189715786
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3788,7 +3829,7 @@ GameObject:
   - component: {fileID: 1887759114}
   - component: {fileID: 1887759117}
   - component: {fileID: 1887759116}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RghtFlipperBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4185,7 +4226,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1992988161}
   m_LocalRotation: {x: -0, y: -0.98013467, z: -0, w: 0.19833316}
-  m_LocalPosition: {x: 6, y: 1.3307495, z: -16.5}
+  m_LocalPosition: {x: 6, y: 1.4, z: -16.5}
   m_LocalScale: {x: 1, y: 2, z: 17}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4416,7 +4457,7 @@ GameObject:
   - component: {fileID: 2097744207}
   - component: {fileID: 2097744206}
   - component: {fileID: 2097744205}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bottom wall right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4502,7 +4543,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2097744204}
   m_LocalRotation: {x: -0, y: 0.98013467, z: -0, w: 0.19833316}
-  m_LocalPosition: {x: 6, y: 1.3307495, z: 13.499999}
+  m_LocalPosition: {x: 6, y: 1.4, z: 13.499999}
   m_LocalScale: {x: 1, y: 2, z: 17}
   m_ConstrainProportionsScale: 0
   m_Children: []
