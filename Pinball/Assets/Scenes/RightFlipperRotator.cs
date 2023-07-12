@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Unity.VisualScripting;
 
 public class RightFlipperRotator : MonoBehaviour
 {
@@ -9,39 +6,34 @@ public class RightFlipperRotator : MonoBehaviour
     public float speed;
     public Vector3 direction;
     public bool rotating = false;
-    Vector3 downPosition = new Vector3(0, 340, 0);
-    Vector3 upPosition = new Vector3(0, 10, 0);
+    public Rigidbody rb;
+    HingeJoint joint;
+    JointMotor motor;
+
+    void Start()
+    {
+        joint = this.GetComponent<HingeJoint>();
+        motor = joint.motor;
+    }
 
     // Update is called once per frame
     void Update()
     {
-
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            if (transform.localEulerAngles.y >= 340 || transform.localEulerAngles.y < 10)
-            {
-                transform.Rotate(direction * speed * Time.deltaTime);
-                rotating = true;
-            }
+            motor.force = 20000;
+            motor.targetVelocity = 1000;
+            rotating = true;
+            joint.motor = motor;
+
         }
         else
         {
-            if (transform.localEulerAngles.y > 340 || transform.localEulerAngles.y <= 10)
-            {
-                transform.Rotate(direction * speed * Time.deltaTime * -1);
-                rotating = false;
-            }
+            motor.force = 1000;
+            motor.targetVelocity =-1000;
+            rotating = false;
+            joint.motor = motor;
         }
 
-        if (transform.localEulerAngles.y < 340 && transform.localEulerAngles.y > 170)
-        {
-            transform.Rotate(downPosition - transform.localEulerAngles);
-            rotating = false;
-        }
-        if (transform.localEulerAngles.y > 10 && transform.localEulerAngles.y < 160)
-        {
-            transform.Rotate(upPosition - transform.localEulerAngles);
-            rotating = false;
-        }
     }
 }
