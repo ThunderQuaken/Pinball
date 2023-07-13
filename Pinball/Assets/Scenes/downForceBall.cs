@@ -11,5 +11,11 @@ public class downForceBall : MonoBehaviour
     void Update()
     {
         rb.AddForce (force);
+        Debug.Log(rb.velocity.magnitude);
+        if (rb.velocity.magnitude > 150)
+        {
+            rb.velocity = rb.velocity * 150 / rb.velocity.magnitude;
+            
+        }
     }
 }

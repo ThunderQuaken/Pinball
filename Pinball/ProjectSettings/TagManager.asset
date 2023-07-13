@@ -10,6 +10,7 @@ TagManager:
   - TriangleBumper
   - LeftFlipper
   - CircleBumper
+  - Pinball
   layers:
   - Default
   - TransparentFX
