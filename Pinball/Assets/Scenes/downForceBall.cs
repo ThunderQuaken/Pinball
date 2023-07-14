@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class downForceBall : MonoBehaviour
 {
-    public Rigidbody rb;
+    Rigidbody rb;
     Vector3 force = new Vector3 (2f, 0f, 0f);
+
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
 
     // Update is called once per frame
     void Update()

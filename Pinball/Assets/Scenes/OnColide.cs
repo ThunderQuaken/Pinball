@@ -6,46 +6,31 @@ using Unity.VisualScripting;
 
 public class OnCollide : MonoBehaviour
 {
-
-    bool bumperCircleCollision = false;
-    bool bumperTriangleCollision = false;
+    bool bumperCollision = false;
     float bumperMultiplier;
-    public Rigidbody rb;
-    public Vector3 posDif;
+    Rigidbody rb;
     ContactPoint contact;
-    Vector3 radius = new Vector3(0.0f, 0.9f, 0.0f);
 
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
 
     void OnCollisionEnter(Collision col)
     {
-
-        if (col.gameObject.tag == "CircleBumper")
+        if (col.gameObject.tag == "Bumper")
         {
-            bumperCircleCollision = true;
+            bumperCollision= true;
             bumperMultiplier = (float) Variables.Object(col.gameObject).Get("BumperMultiplier");
-            posDif = this.transform.position - col.transform.position;
-        }
-
-        if (col.gameObject.tag == "TriangleBumper")
-        {
-            bumperTriangleCollision= true;
-            bumperMultiplier = (float)Variables.Object(col.gameObject).Get("BumperMultiplier");
             contact = col.GetContact(0);
         }
     }
 
     void Update()
     {
-        if (bumperCircleCollision == true)
+        if (bumperCollision == true)
         {
-            bumperCircleCollision = false;
-            rb.AddForce(posDif * bumperMultiplier);
-            ScoreManager.instance.AddPoint(200);
-        }
-
-        if (bumperTriangleCollision == true)
-        {
-            bumperTriangleCollision = false;
+            bumperCollision = false;
             rb.AddForce(contact.normal *  bumperMultiplier);
             ScoreManager.instance.AddPoint(200);
         }

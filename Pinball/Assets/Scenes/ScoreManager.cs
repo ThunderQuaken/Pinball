@@ -11,7 +11,7 @@ public class ScoreManager : MonoBehaviour
 
     public TextMeshProUGUI scoreText;
 
-    int score = 0;
+    public int score = 0;
     int displayScore = 0;
     double waitTime = .03;
     double waitedTime = 0;
@@ -53,6 +53,11 @@ public class ScoreManager : MonoBehaviour
             displayScore = score;
             scoreText.text = displayScore.ToString();
         }
+    }
+
+    public void deactivate()
+    {
+        gameObject.SetActive(false);
     }
 
 }
